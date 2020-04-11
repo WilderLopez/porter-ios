@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,14 @@
 		81175A012440B7E9007F349B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81175A002440B7E9007F349B /* Assets.xcassets */; };
 		81175A042440B7E9007F349B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81175A032440B7E9007F349B /* Preview Assets.xcassets */; };
 		81175A072440B7E9007F349B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81175A052440B7E9007F349B /* LaunchScreen.storyboard */; };
+		81175A102440BD5B007F349B /* GenerateQR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81175A0F2440BD5B007F349B /* GenerateQR.swift */; };
+		81175A122440BFD2007F349B /* EnvironmentV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81175A112440BFD2007F349B /* EnvironmentV.swift */; };
+		81175A152440C33C007F349B /* QRModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81175A132440C33C007F349B /* QRModel.xcdatamodeld */; };
+		81175A182440D2E8007F349B /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81175A172440D2E8007F349B /* Modifiers.swift */; };
+		81175A1B2440D962007F349B /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 81175A1A2440D962007F349B /* CodeScanner */; };
+		81175A1D24411EA2007F349B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81175A1C24411EA2007F349B /* Constant.swift */; };
+		81D83BF42441346A00816A7D /* ScannerFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D83BF32441346A00816A7D /* ScannerFuncs.swift */; };
+		81D83BF8244144F100816A7D /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 81D83BF7244144F100816A7D /* PartialSheet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +32,12 @@
 		81175A032440B7E9007F349B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		81175A062440B7E9007F349B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81175A082440B7E9007F349B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81175A0F2440BD5B007F349B /* GenerateQR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateQR.swift; sourceTree = "<group>"; };
+		81175A112440BFD2007F349B /* EnvironmentV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentV.swift; sourceTree = "<group>"; };
+		81175A142440C33C007F349B /* QRModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QRModel.xcdatamodel; sourceTree = "<group>"; };
+		81175A172440D2E8007F349B /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		81175A1C24411EA2007F349B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		81D83BF32441346A00816A7D /* ScannerFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerFuncs.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81D83BF8244144F100816A7D /* PartialSheet in Frameworks */,
+				81175A1B2440D962007F349B /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +56,7 @@
 		811759EE2440B7E8007F349B = {
 			isa = PBXGroup;
 			children = (
+				81175A132440C33C007F349B /* QRModel.xcdatamodeld */,
 				811759F92440B7E8007F349B /* QualityReaderQR */,
 				811759F82440B7E8007F349B /* Products */,
 			);
@@ -56,13 +73,16 @@
 		811759F92440B7E8007F349B /* QualityReaderQR */ = {
 			isa = PBXGroup;
 			children = (
-				811759FA2440B7E8007F349B /* AppDelegate.swift */,
-				811759FC2440B7E8007F349B /* SceneDelegate.swift */,
-				811759FE2440B7E8007F349B /* ContentView.swift */,
+				81175A082440B7E9007F349B /* Info.plist */,
 				81175A002440B7E9007F349B /* Assets.xcassets */,
 				81175A052440B7E9007F349B /* LaunchScreen.storyboard */,
-				81175A082440B7E9007F349B /* Info.plist */,
 				81175A022440B7E9007F349B /* Preview Content */,
+				81D83BF5244134F600816A7D /* System */,
+				81175A162440D2D1007F349B /* Utils */,
+				81175A0E2440BD43007F349B /* Views */,
+				81175A112440BFD2007F349B /* EnvironmentV.swift */,
+				81D83BF32441346A00816A7D /* ScannerFuncs.swift */,
+				811759FE2440B7E8007F349B /* ContentView.swift */,
 			);
 			path = QualityReaderQR;
 			sourceTree = "<group>";
@@ -73,6 +93,32 @@
 				81175A032440B7E9007F349B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		81175A0E2440BD43007F349B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81175A0F2440BD5B007F349B /* GenerateQR.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		81175A162440D2D1007F349B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				81175A172440D2E8007F349B /* Modifiers.swift */,
+				81175A1C24411EA2007F349B /* Constant.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		81D83BF5244134F600816A7D /* System */ = {
+			isa = PBXGroup;
+			children = (
+				811759FA2440B7E8007F349B /* AppDelegate.swift */,
+				811759FC2440B7E8007F349B /* SceneDelegate.swift */,
+			);
+			path = System;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -91,6 +137,10 @@
 			dependencies = (
 			);
 			name = QualityReaderQR;
+			packageProductDependencies = (
+				81175A1A2440D962007F349B /* CodeScanner */,
+				81D83BF7244144F100816A7D /* PartialSheet */,
+			);
 			productName = QualityReaderQR;
 			productReference = 811759F72440B7E8007F349B /* QualityReaderQR.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +169,10 @@
 				Base,
 			);
 			mainGroup = 811759EE2440B7E8007F349B;
+			packageReferences = (
+				81175A192440D962007F349B /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				81D83BF6244144F100816A7D /* XCRemoteSwiftPackageReference "PartialSheet" */,
+			);
 			productRefGroup = 811759F82440B7E8007F349B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -146,8 +200,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81175A122440BFD2007F349B /* EnvironmentV.swift in Sources */,
 				811759FB2440B7E8007F349B /* AppDelegate.swift in Sources */,
+				81175A182440D2E8007F349B /* Modifiers.swift in Sources */,
+				81175A1D24411EA2007F349B /* Constant.swift in Sources */,
+				81175A102440BD5B007F349B /* GenerateQR.swift in Sources */,
 				811759FD2440B7E8007F349B /* SceneDelegate.swift in Sources */,
+				81D83BF42441346A00816A7D /* ScannerFuncs.swift in Sources */,
+				81175A152440C33C007F349B /* QRModel.xcdatamodeld in Sources */,
 				811759FF2440B7E8007F349B /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +402,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		81175A192440D962007F349B /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.3;
+			};
+		};
+		81D83BF6244144F100816A7D /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		81175A1A2440D962007F349B /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81175A192440D962007F349B /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+		81D83BF7244144F100816A7D /* PartialSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81D83BF6244144F100816A7D /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			productName = PartialSheet;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		81175A132440C33C007F349B /* QRModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				81175A142440C33C007F349B /* QRModel.xcdatamodel */,
+			);
+			currentVersion = 81175A142440C33C007F349B /* QRModel.xcdatamodel */;
+			path = QRModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 811759EF2440B7E8007F349B /* Project object */;
 }
