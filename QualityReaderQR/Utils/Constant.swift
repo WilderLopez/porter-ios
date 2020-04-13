@@ -17,12 +17,31 @@ struct CONSTANT{
         case QR_NAME_EMAIL = "QR_NAME_EMAIL"
         case QR_ANY = "QR_ANY"
     }
+    
+    enum QueueUpdateAction: String {
+        case ADD_CLIENT = "ADD_CLIENT"
+        case FINISH = "FINISH"
+    }
+    
+    enum QueueType : String{
+        case DIRECT_Q = "DIRECT_Q"
+        case VERIFY_Q = "VERIFY_Q"
+    }
+    static func isOpenQueue() -> Bool{
+        if (UserDefaults.standard.value(forKey: "Did_Finish_Queue") != nil) {
+            return true
+        }
+        return false
+    }
+    static func saveQueueState(isOpenQueue: Bool){
+        UserDefaults.standard.set(isOpenQueue, forKey: "Did_Finish_Queue")
+    }
 }
 extension UIDevice {
     static func vibrate() {
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
     }
-    static func playSound(){
-        AudioServicesPlaySystemSound(1003)
+    static func playSound(soundID: SystemSoundID){
+        AudioServicesPlaySystemSound(soundID)
     }
 }

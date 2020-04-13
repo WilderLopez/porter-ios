@@ -14,7 +14,7 @@ final class UserData : ObservableObject{
     @Published var isNavBarHidden = true
 }
 
-class Prospect{
+public class Prospect{
     var name : String
     var data : String
     

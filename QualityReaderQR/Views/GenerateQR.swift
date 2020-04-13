@@ -21,23 +21,47 @@ struct GenerateQR: View {
     var body: some View {
        
         ScrollView{
-            VStack {
+            VStack (spacing: 15){
+                VStack{
+//                HStack{
+                Text("*Nombre y Apellidos").font(.system(size: 11))
+                    .foregroundColor(.red)
+                    .multilineTextAlignment(.leading)
+//                    .padding(.leading, 100)
+//                    Spacer()
+//                    }
                 
-                TextField("Name", text: $name)
+                TextField("Nombre", text: $name)
                     .textContentType(.name)
-                    .font(.title)
-                    .padding(.horizontal)
-
-                TextField("Any data", text: $data)
-                    .textContentType(.emailAddress)
-                    .font(.title)
+                    .font(.system(.title, design: .rounded))
+                    .textContentType(.name)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding([.horizontal, .bottom])
-
+                    
+                
+            }
+                VStack{
+//                HStack{
+                Text("*Carnet de Identidad").font(.system(size: 11))
+                    .foregroundColor(.red)
+                    .multilineTextAlignment(.leading)
+//                    .padding(.leading, 100)
+//                    Spacer()
+//                    }
+                TextField("CI", text: $data)
+                    .textContentType(.emailAddress)
+                    .font(.system(.title, design: .rounded))
+                    .padding([.horizontal, .bottom])
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+//                    .disabled(data.count > 11 )
+                }
             }.padding(.vertical, 40)
                
             
             }
             .partialSheet(presented: $showModalGenerateQR) {
+                
                 VStack(alignment: .center, spacing: 10){
                                    Text("Your info in QR").font(.system(.headline, design: .rounded))
                                    
@@ -46,12 +70,15 @@ struct GenerateQR: View {
                                    .resizable()
                                    .scaledToFit()
                                    .frame(width: 200, height: 200)
-                               }
+                }
                        }
         .navigationBarTitle("Personal info")
     .navigationBarItems(trailing:
         Button(action: {
+            DismissingKeyboard.dismissKeyBoard()
             self.showModalGenerateQR = true
+            UIDevice.playSound(soundID: 1394)
+            //1394 sing-in sound and vibration
         }){
             Text("Create QR")}
             )

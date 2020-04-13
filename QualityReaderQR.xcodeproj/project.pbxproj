@@ -19,8 +19,21 @@
 		81175A182440D2E8007F349B /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81175A172440D2E8007F349B /* Modifiers.swift */; };
 		81175A1B2440D962007F349B /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 81175A1A2440D962007F349B /* CodeScanner */; };
 		81175A1D24411EA2007F349B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81175A1C24411EA2007F349B /* Constant.swift */; };
+		81A2C3322442F92E008307B6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C3312442F92E008307B6 /* Model.swift */; };
+		81A2C3372442FC55008307B6 /* QueueEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C3332442FC55008307B6 /* QueueEntity+CoreDataClass.swift */; };
+		81A2C3382442FC55008307B6 /* QueueEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C3342442FC55008307B6 /* QueueEntity+CoreDataProperties.swift */; };
+		81A2C3392442FC55008307B6 /* ClientEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C3352442FC55008307B6 /* ClientEntity+CoreDataClass.swift */; };
+		81A2C33A2442FC55008307B6 /* ClientEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C3362442FC55008307B6 /* ClientEntity+CoreDataProperties.swift */; };
+		81A2C33D2442FE81008307B6 /* ClientsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C33C2442FE81008307B6 /* ClientsManager.swift */; };
+		81A2C33F2443B3D3008307B6 /* QueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C33E2443B3D3008307B6 /* QueueManager.swift */; };
+		81A2C3412443D65E008307B6 /* RegisterQueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C3402443D65E008307B6 /* RegisterQueueView.swift */; };
+		81A2C3452443E6ED008307B6 /* QueueViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C3442443E6ED008307B6 /* QueueViewCell.swift */; };
+		81A2C34724440EB1008307B6 /* QueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C34624440EB1008307B6 /* QueueView.swift */; };
+		81A2C34A24443104008307B6 /* DirectQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C34924443104008307B6 /* DirectQView.swift */; };
+		81A2C34C2444498C008307B6 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C34B2444498C008307B6 /* ScannerView.swift */; };
 		81D83BF42441346A00816A7D /* ScannerFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D83BF32441346A00816A7D /* ScannerFuncs.swift */; };
 		81D83BF8244144F100816A7D /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 81D83BF7244144F100816A7D /* PartialSheet */; };
+		81D83BFA244167F000816A7D /* NewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D83BF9244167F000816A7D /* NewInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +50,20 @@
 		81175A142440C33C007F349B /* QRModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QRModel.xcdatamodel; sourceTree = "<group>"; };
 		81175A172440D2E8007F349B /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		81175A1C24411EA2007F349B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		81A2C3312442F92E008307B6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		81A2C3332442FC55008307B6 /* QueueEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "QueueEntity+CoreDataClass.swift"; path = "QualityReaderQR/CoreDataModel/QueueEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		81A2C3342442FC55008307B6 /* QueueEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "QueueEntity+CoreDataProperties.swift"; path = "QualityReaderQR/CoreDataModel/QueueEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		81A2C3352442FC55008307B6 /* ClientEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ClientEntity+CoreDataClass.swift"; path = "QualityReaderQR/CoreDataModel/ClientEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		81A2C3362442FC55008307B6 /* ClientEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ClientEntity+CoreDataProperties.swift"; path = "QualityReaderQR/CoreDataModel/ClientEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		81A2C33C2442FE81008307B6 /* ClientsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsManager.swift; sourceTree = "<group>"; };
+		81A2C33E2443B3D3008307B6 /* QueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueManager.swift; sourceTree = "<group>"; };
+		81A2C3402443D65E008307B6 /* RegisterQueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterQueueView.swift; sourceTree = "<group>"; };
+		81A2C3442443E6ED008307B6 /* QueueViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewCell.swift; sourceTree = "<group>"; };
+		81A2C34624440EB1008307B6 /* QueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueView.swift; sourceTree = "<group>"; };
+		81A2C34924443104008307B6 /* DirectQView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectQView.swift; sourceTree = "<group>"; };
+		81A2C34B2444498C008307B6 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		81D83BF32441346A00816A7D /* ScannerFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerFuncs.swift; sourceTree = "<group>"; };
+		81D83BF9244167F000816A7D /* NewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +82,10 @@
 		811759EE2440B7E8007F349B = {
 			isa = PBXGroup;
 			children = (
+				81A2C3332442FC55008307B6 /* QueueEntity+CoreDataClass.swift */,
+				81A2C3342442FC55008307B6 /* QueueEntity+CoreDataProperties.swift */,
+				81A2C3352442FC55008307B6 /* ClientEntity+CoreDataClass.swift */,
+				81A2C3362442FC55008307B6 /* ClientEntity+CoreDataProperties.swift */,
 				81175A132440C33C007F349B /* QRModel.xcdatamodeld */,
 				811759F92440B7E8007F349B /* QualityReaderQR */,
 				811759F82440B7E8007F349B /* Products */,
@@ -73,16 +103,17 @@
 		811759F92440B7E8007F349B /* QualityReaderQR */ = {
 			isa = PBXGroup;
 			children = (
+				81175A022440B7E9007F349B /* Preview Content */,
 				81175A082440B7E9007F349B /* Info.plist */,
 				81175A002440B7E9007F349B /* Assets.xcassets */,
 				81175A052440B7E9007F349B /* LaunchScreen.storyboard */,
-				81175A022440B7E9007F349B /* Preview Content */,
+				81A2C33B2442FE47008307B6 /* CoreDataFuncs */,
 				81D83BF5244134F600816A7D /* System */,
 				81175A162440D2D1007F349B /* Utils */,
+				81A2C3302442F8F8008307B6 /* Model */,
 				81175A0E2440BD43007F349B /* Views */,
-				81175A112440BFD2007F349B /* EnvironmentV.swift */,
-				81D83BF32441346A00816A7D /* ScannerFuncs.swift */,
 				811759FE2440B7E8007F349B /* ContentView.swift */,
+				81D83BF32441346A00816A7D /* ScannerFuncs.swift */,
 			);
 			path = QualityReaderQR;
 			sourceTree = "<group>";
@@ -98,7 +129,11 @@
 		81175A0E2440BD43007F349B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				81A2C348244430AC008307B6 /* Main */,
+				81A2C3422443E6CC008307B6 /* RegisterQueue */,
 				81175A0F2440BD5B007F349B /* GenerateQR.swift */,
+				81D83BF9244167F000816A7D /* NewInfo.swift */,
+				81A2C34B2444498C008307B6 /* ScannerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,10 +141,46 @@
 		81175A162440D2D1007F349B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				81175A112440BFD2007F349B /* EnvironmentV.swift */,
 				81175A172440D2E8007F349B /* Modifiers.swift */,
 				81175A1C24411EA2007F349B /* Constant.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		81A2C3302442F8F8008307B6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				81A2C3312442F92E008307B6 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		81A2C33B2442FE47008307B6 /* CoreDataFuncs */ = {
+			isa = PBXGroup;
+			children = (
+				81A2C33C2442FE81008307B6 /* ClientsManager.swift */,
+				81A2C33E2443B3D3008307B6 /* QueueManager.swift */,
+			);
+			path = CoreDataFuncs;
+			sourceTree = "<group>";
+		};
+		81A2C3422443E6CC008307B6 /* RegisterQueue */ = {
+			isa = PBXGroup;
+			children = (
+				81A2C3402443D65E008307B6 /* RegisterQueueView.swift */,
+				81A2C3442443E6ED008307B6 /* QueueViewCell.swift */,
+				81A2C34624440EB1008307B6 /* QueueView.swift */,
+			);
+			path = RegisterQueue;
+			sourceTree = "<group>";
+		};
+		81A2C348244430AC008307B6 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				81A2C34924443104008307B6 /* DirectQView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		81D83BF5244134F600816A7D /* System */ = {
@@ -200,14 +271,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81A2C3392442FC55008307B6 /* ClientEntity+CoreDataClass.swift in Sources */,
+				81A2C3452443E6ED008307B6 /* QueueViewCell.swift in Sources */,
+				81D83BFA244167F000816A7D /* NewInfo.swift in Sources */,
 				81175A122440BFD2007F349B /* EnvironmentV.swift in Sources */,
+				81A2C33F2443B3D3008307B6 /* QueueManager.swift in Sources */,
 				811759FB2440B7E8007F349B /* AppDelegate.swift in Sources */,
 				81175A182440D2E8007F349B /* Modifiers.swift in Sources */,
+				81A2C34A24443104008307B6 /* DirectQView.swift in Sources */,
 				81175A1D24411EA2007F349B /* Constant.swift in Sources */,
+				81A2C34C2444498C008307B6 /* ScannerView.swift in Sources */,
 				81175A102440BD5B007F349B /* GenerateQR.swift in Sources */,
+				81A2C3382442FC55008307B6 /* QueueEntity+CoreDataProperties.swift in Sources */,
 				811759FD2440B7E8007F349B /* SceneDelegate.swift in Sources */,
 				81D83BF42441346A00816A7D /* ScannerFuncs.swift in Sources */,
+				81A2C33A2442FC55008307B6 /* ClientEntity+CoreDataProperties.swift in Sources */,
+				81A2C3372442FC55008307B6 /* QueueEntity+CoreDataClass.swift in Sources */,
+				81A2C33D2442FE81008307B6 /* ClientsManager.swift in Sources */,
+				81A2C3322442F92E008307B6 /* Model.swift in Sources */,
+				81A2C3412443D65E008307B6 /* RegisterQueueView.swift in Sources */,
 				81175A152440C33C007F349B /* QRModel.xcdatamodeld in Sources */,
+				81A2C34724440EB1008307B6 /* QueueView.swift in Sources */,
 				811759FF2440B7E8007F349B /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

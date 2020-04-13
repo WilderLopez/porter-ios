@@ -1,4 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="ClientEntity" representedClassName="ClientEntity" syncable="YES">
+        <attribute name="ci" optional="YES" attributeType="String"/>
+        <attribute name="denegateCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="queueId" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="QueueEntity" representedClassName="QueueEntity" syncable="YES">
+        <attribute name="clients" optional="YES" attributeType="Transformable"/>
+        <attribute name="dateBegin" optional="YES" attributeType="String"/>
+        <attribute name="dateEnd" optional="YES" attributeType="String"/>
+        <attribute name="denegateClients" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="ClientEntity" positionX="-353.1640625" positionY="-129.3671875" width="128" height="118"/>
+        <element name="QueueEntity" positionX="-54" positionY="-9" width="128" height="133"/>
+    </elements>
 </model>
