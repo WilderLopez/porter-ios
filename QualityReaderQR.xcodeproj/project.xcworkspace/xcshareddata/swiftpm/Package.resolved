@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CodeScanner",
+        "repositoryURL": "https://github.com/twostraws/CodeScanner",
+        "state": {
+          "branch": null,
+          "revision": "0519543ae943db85b360a96962242887daeca2b5",
+          "version": "1.0.3"
+        }
+      },
+      {
+        "package": "PartialSheet",
+        "repositoryURL": "https://github.com/AndreaMiotto/PartialSheet.git",
+        "state": {
+          "branch": null,
+          "revision": "cda3be6f769ec89c48b17317a598ef186c95ca5c",
+          "version": "0.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

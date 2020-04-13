@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "B9812D2F-5281-470C-80F3-CA0FBA75022C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "578A6849-F5B1-48B9-8E89-E698C6D50631"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QualityReaderQR/Views/RegisterQueue/RegisterQueueView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "RegisterQueueView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "578A6849-F5B1-48B9-8E89-E698C6D50631 - 2dad024a2c982ba6"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QualityReaderQR.RegisterQueueView.queues.getter : Swift.Array&lt;QualityReaderQR.Queue&gt;"
+                  moduleName = "QualityReaderQR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wilderlopez/Documents/xCode%20Workspace/QualityReaderQR/QualityReaderQR/Views/RegisterQueue/RegisterQueueView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  uuid = "578A6849-F5B1-48B9-8E89-E698C6D50631 - cd83db8463be23b2"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QualityReaderQR.RegisterQueueView.queues.setter : Swift.Array&lt;QualityReaderQR.Queue&gt;"
+                  moduleName = "QualityReaderQR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wilderlopez/Documents/xCode%20Workspace/QualityReaderQR/QualityReaderQR/Views/RegisterQueue/RegisterQueueView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "232">
+               </Location>
+               <Location
+                  uuid = "578A6849-F5B1-48B9-8E89-E698C6D50631 - f18cd7d063f4bda1"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QualityReaderQR.RegisterQueueView.queues.modify : Swift.Array&lt;QualityReaderQR.Queue&gt;"
+                  moduleName = "QualityReaderQR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wilderlopez/Documents/xCode%20Workspace/QualityReaderQR/QualityReaderQR/Views/RegisterQueue/RegisterQueueView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "578A6849-F5B1-48B9-8E89-E698C6D50631 - 9a8309e38ffaa5bc"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QualityReaderQR.RegisterQueueView.queues.modify : Swift.Array&lt;QualityReaderQR.Queue&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "QualityReaderQR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wilderlopez/Documents/xCode%20Workspace/QualityReaderQR/QualityReaderQR/Views/RegisterQueue/RegisterQueueView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "578A6849-F5B1-48B9-8E89-E698C6D50631 - 395d4baae399ab2e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QualityReaderQR.RegisterQueueView.$queues.getter : SwiftUI.Binding&lt;Swift.Array&lt;QualityReaderQR.Queue&gt;&gt;"
+                  moduleName = "QualityReaderQR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wilderlopez/Documents/xCode%20Workspace/QualityReaderQR/QualityReaderQR/Views/RegisterQueue/RegisterQueueView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "120">
+               </Location>
+               <Location
+                  uuid = "578A6849-F5B1-48B9-8E89-E698C6D50631 - 2dac0c2839f276eb"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "QualityReaderQR.RegisterQueueView.init(queues: Swift.Array&lt;QualityReaderQR.Queue&gt;) -&gt; QualityReaderQR.RegisterQueueView"
+                  moduleName = "QualityReaderQR"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wilderlopez/Documents/xCode%20Workspace/QualityReaderQR/QualityReaderQR/Views/RegisterQueue/RegisterQueueView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

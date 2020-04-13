@@ -34,6 +34,7 @@
 		81D83BF42441346A00816A7D /* ScannerFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D83BF32441346A00816A7D /* ScannerFuncs.swift */; };
 		81D83BF8244144F100816A7D /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 81D83BF7244144F100816A7D /* PartialSheet */; };
 		81D83BFA244167F000816A7D /* NewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D83BF9244167F000816A7D /* NewInfo.swift */; };
+		81FE2A492444E24D00A374CB /* ClientViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE2A482444E24D00A374CB /* ClientViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		81A2C34B2444498C008307B6 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		81D83BF32441346A00816A7D /* ScannerFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerFuncs.swift; sourceTree = "<group>"; };
 		81D83BF9244167F000816A7D /* NewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInfo.swift; sourceTree = "<group>"; };
+		81FE2A482444E24D00A374CB /* ClientViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				81A2C3402443D65E008307B6 /* RegisterQueueView.swift */,
 				81A2C3442443E6ED008307B6 /* QueueViewCell.swift */,
 				81A2C34624440EB1008307B6 /* QueueView.swift */,
+				81FE2A482444E24D00A374CB /* ClientViewCell.swift */,
 			);
 			path = RegisterQueue;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				81A2C3392442FC55008307B6 /* ClientEntity+CoreDataClass.swift in Sources */,
 				81A2C3452443E6ED008307B6 /* QueueViewCell.swift in Sources */,
 				81D83BFA244167F000816A7D /* NewInfo.swift in Sources */,
+				81FE2A492444E24D00A374CB /* ClientViewCell.swift in Sources */,
 				81175A122440BFD2007F349B /* EnvironmentV.swift in Sources */,
 				81A2C33F2443B3D3008307B6 /* QueueManager.swift in Sources */,
 				811759FB2440B7E8007F349B /* AppDelegate.swift in Sources */,

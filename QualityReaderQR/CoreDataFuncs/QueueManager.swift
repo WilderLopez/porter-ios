@@ -136,6 +136,7 @@ struct QueueManager {
             qq.dateBegin = q.dateBegin!
             qq.dateEnd = q.dateEnd!
             qq.denegateClients = q.denegateClients
+            qq.clients = q.clients
             Qs.append(qq)
         }
         return Qs

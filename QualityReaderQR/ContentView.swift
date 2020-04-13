@@ -59,7 +59,14 @@ struct ContentView: View {
                         .sheet(isPresented: $isShowingScanner, onDismiss: {
                                         if self.showInfoScanned {
                                             print("its ok")
-                        //                    Notify.me()
+                                            //ADD Client a current Cola
+                                            let client = Client(id: UUID().uuidString, name: self.info.name, ci: self.info.data, denegateCount: 0, queueId: self.CurrentQueue.id)
+                                            
+                                            if QueueManager.updateQueue(With: client, queueId: self.CurrentQueue.id, queueAction: .ADD_CLIENT){
+                                                print("Save Client in CurrentQueue")
+                                            }else {
+                                                print("Error trying to save CurrentQueue")
+                                            }
                                         }
                                     }) {
                                         CodeScannerView(codeTypes: [.qr], simulatedData: "N:WILDER\rAA:LOPEZ ELIAS\rCI:95061249224\rFV:ABA585784\r", completion: self.handleScan)
@@ -160,7 +167,7 @@ struct ContentView: View {
                 }.disabled(!isStarted),
                 
                 trailing:
-                NavigationLink(destination: RegisterQueueView(queues: QueueManager.getAllQueue())){
+                NavigationLink(destination: RegisterQueueView()){
                     Text("Registro")
                 }
 //                NavigationLink(destination: GenerateQR()){
@@ -219,7 +226,7 @@ struct ContentView: View {
                           }
 
                           self.info = person
-                          
+                          self.isStarted = true
                           self.showInfoScanned = true
                       case .failure(let error):
                           print("Scanning failed \(error)")

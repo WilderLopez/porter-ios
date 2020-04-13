@@ -19,16 +19,18 @@ struct QueueViewCell: View {
     var body: some View {
         HStack{
         VStack(alignment: .center,spacing: 10){
+            HStack{
             Text(self.name).font(.system(size: 25, weight: .bold, design: .rounded))
             .multilineTextAlignment(.leading)
+            }.frame(minWidth: 0,maxWidth: .infinity, alignment: .leading)
             HStack{
             Text("Inicio: \(self.beginDate)").font(.system(size: 17, design: .rounded))
             Text("Fin: \(self.endDate)").font(.system(size: 17, design: .rounded))
-            }
+            }.frame(minWidth: 0,maxWidth: .infinity, alignment: .leading)
             HStack{
                 Text("Clientes: \(self.clients)").font(.system(size: 17, design: .rounded))
                 Text("Denegados: \(self.denegateClients)").font(.system(size: 17, design: .rounded)).foregroundColor(.red)
-            }
+            }.frame(minWidth: 0,maxWidth: .infinity, alignment: .leading)
         }
         .padding()
         .frame(minWidth: 0,maxWidth: .infinity)

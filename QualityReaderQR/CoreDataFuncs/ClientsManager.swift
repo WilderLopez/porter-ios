@@ -10,18 +10,18 @@ import Foundation
 import CoreData
 import UIKit
 
-class ClientsManager {
+struct ClientsManager {
     
-    var currentQueue : Queue
-    
-    init(Current queue: Queue) {
-        self.currentQueue = queue
-    }
+//    var currentQueue : Queue
+//    
+//    init(Current queue: Queue) {
+//        self.currentQueue = queue
+//    }
     
 //    init() {
 //    }
     
-        func createClient(newClient: Client){
+       static func createClient(newClient: Client){
             let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
             let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
     //
@@ -45,7 +45,7 @@ class ClientsManager {
             
         }
     
-    func updateClient(newClient: Client) -> Bool {
+    static func updateClient(newClient: Client) -> Bool {
         
 //         let username : String = newClient.id
         guard let ClientCD : ClientEntity = self.getClientFromDB(predicate: NSPredicate(format: "id == %@ AND queueId == %@", newClient.id, newClient.queueId)) else { return false }
@@ -67,7 +67,7 @@ class ClientsManager {
         return false
     }
     
-    public func getClientFromDB(predicate : NSPredicate) -> ClientEntity? {
+   static public func getClientFromDB(predicate : NSPredicate) -> ClientEntity? {
         
         let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
