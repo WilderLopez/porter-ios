@@ -33,13 +33,19 @@ struct CONSTANT{
         case VERIFY_Q = "VERIFY_Q"
     }
     static func isOpenQueue() -> Bool{
-        if (UserDefaults.standard.value(forKey: "Did_Finish_Queue") != nil) {
-            return true
+        if let x = UserDefaults.standard.value(forKey: "Did_Finish_Queue") as? Bool{
+            return x
         }
         return false
     }
-    static func saveQueueState(isOpenQueue: Bool){
+    static func getLastQueueID() -> String?{
+        return UserDefaults.standard.value(forKey: "Last_QueueID") as? String
+    }
+    static func saveQueueState(isOpenQueue: Bool, queueID: String? = nil){
         UserDefaults.standard.set(isOpenQueue, forKey: "Did_Finish_Queue")
+        if queueID != nil  && isOpenQueue{
+        UserDefaults.standard.set(queueID, forKey: "Last_QueueID")
+        }
     }
 }
 extension UIDevice {

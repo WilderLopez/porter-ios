@@ -156,8 +156,8 @@ struct ContentView: View {
                         
                         //Save Queue in CoreData
                         QueueManager.createQueue(newQueue: self.CurrentQueue)
-                        
-                        CONSTANT.saveQueueState(isOpenQueue: true)
+                        //status OpenQueue
+                        CONSTANT.saveQueueState(isOpenQueue: true, queueID: self.CurrentQueue.id)
                     }){
                         VStack(spacing: 30){
                         Image(systemName:  "plus.square.fill.on.square.fill").font(.system(size: 80))
@@ -179,7 +179,17 @@ struct ContentView: View {
                     }
                 }
                 
-            }
+            }.onAppear(perform: {
+                if CONSTANT.isOpenQueue() && CONSTANT.getLastQueueID() != nil{
+                    self.isStarted = true
+                    self.CurrentQueue.id = CONSTANT.getLastQueueID()!
+                    let Q = QueueManager.getQueueFromDB(predicate: NSPredicate(format: "id == %@", self.CurrentQueue.id))
+                    
+                    self.dateString = Q!.name!
+                    self.timeString = Q!.dateBegin!
+                    self.countOfClients = ClientsManager.getAllClients(queueID: self.CurrentQueue.id).count
+                }
+            })
             
             //MARK: NAVIGATION
             .navigationBarTitle(Text("\(self.isStarted ? "Cola" : "Porter@")"), displayMode: .inline)
@@ -187,7 +197,7 @@ struct ContentView: View {
                 Button(action: {
                     print("Closet Queue button tapped")
                     self.showAlet = true
-                    
+                    CONSTANT.saveQueueState(isOpenQueue: false)
                 }){
                     Image(systemName: "rectangle.stack.badge.minus").font(.system(size: 25)).accentColor(.red).disabled(!isStarted)
                 }.disabled(!isStarted),
