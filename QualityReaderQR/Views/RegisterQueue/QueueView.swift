@@ -9,17 +9,22 @@
 import SwiftUI
 
 struct QueueView: View {
-    @State var queue : Queue
+    @State var queueID : String
+    @State var clients = [Client]()
     
     var body: some View {
         VStack{
             ScrollView{
-
-                ForEach(0..<self.queue.clients.count){ row in
+                if self.clients.count > 0{
+                ForEach(0..<self.clients.count){ row in
                     VStack(spacing: 10){
-                    ClientViewCell(name: "\(self.queue.clients[row].name)", ci: "\(self.queue.clients[row].ci)", denegateCount: Int( self.queue.clients[row].denegateCount))
+                    ClientViewCell(name: "\(self.clients[row].name)", ci: "\(self.clients[row].ci)", denegateCount: Int( self.clients[row].denegateCount))
                     }.padding(.vertical, 10)
                 }.padding(.top, 20)
+            }
+            }
+            .onAppear {
+                self.clients = ClientsManager.getAllClients(queueID: self.queueID)
             }
         }
     .navigationBarTitle(Text("Todos"))
@@ -27,8 +32,8 @@ struct QueueView: View {
 }
 
 struct QueueView_Previews: PreviewProvider {
-    @State static var queue = Queue()
+    @State static var queueID = "sad"
     static var previews: some View {
-        QueueView(queue: queue)
+        QueueView(queueID: queueID)
     }
 }

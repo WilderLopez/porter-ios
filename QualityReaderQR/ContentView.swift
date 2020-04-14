@@ -28,7 +28,7 @@ struct ContentView: View {
     @State var countOfClients = 0
     @State var queueType : CONSTANT.QueueType?
     @State var isStarted = false
-    
+    @State var isDenegate = false
     
     
     
@@ -42,7 +42,7 @@ struct ContentView: View {
                     VStack{
                         
                         withAnimation {
-                            DirectQView(dateString: $dateString, timeString: $timeString, countOfClients: $countOfClients, showInfoScanned: $showInfoScanned, info: $info, QRType: $QRType)
+                            DirectQView(dateString: $dateString, timeString: $timeString, countOfClients: $countOfClients, showInfoScanned: $showInfoScanned, info: $info, QRType: $QRType, isDenegate: $isDenegate)
                         }
                         
                         Spacer()
@@ -50,22 +50,38 @@ struct ContentView: View {
                         
                         Button(action: {
                             self.isShowingScanner = true
+                            self.showInfoScanned = false
                         }){
                             VStack(spacing: 20){
                             Image(systemName: "qrcode.viewfinder").font(.system(size: 60))
 
                             }
                         }.padding([.bottom, .top], 50)
+                        //MARK: IT's OK METHOD
                         .sheet(isPresented: $isShowingScanner, onDismiss: {
-                                        if self.showInfoScanned {
+                            if self.showInfoScanned {
                                             print("its ok")
-                                            //ADD Client a current Cola
+//                                self.showInfoScanned = false
+                                            //Create Client
                                             let client = Client(id: UUID().uuidString, name: self.info.name, ci: self.info.data, denegateCount: 0, queueId: self.CurrentQueue.id)
-                                            
-                                            if QueueManager.updateQueue(With: client, queueId: self.CurrentQueue.id, queueAction: .ADD_CLIENT){
-                                                print("Save Client in CurrentQueue")
+                                            //if can update client not (3)
+                                            if ClientsManager.updateClient(newClient: client, method: .ADD_DENEGATECOUNT){
+                                                //Error sound
+                                                 UIDevice.playSound(soundID: 1073)
+                                                self.isDenegate = true
+                                                //update queue
                                             }else {
-                                                print("Error trying to save CurrentQueue")
+                                            // (3) ADD Client a current Cola
+                                                if QueueManager.updateQueue(With: client, queueId: self.CurrentQueue.id, queueAction: .ADD_CLIENT){
+                                                    //ok sound and count++ 1073, accept 1111, cancel 1112
+                                                    UIDevice.playSound(soundID: 1111)
+                                                    self.isDenegate = false
+                                                    self.countOfClients += 1
+                                                   
+                                                    print("Save Client in CurrentQueue")
+                                                }else {
+                                                    print("Error trying to save CurrentQueue")
+                                                }
                                             }
                                         }
                                     }) {
@@ -104,6 +120,7 @@ struct ContentView: View {
                     }
                 }
                 else {
+                    //MARK:  STARTER BUTTOM
                     HStack(alignment: .center, spacing: 50){
                     Button(action: {
                         self.queueType = CONSTANT.QueueType.DIRECT_Q
@@ -155,7 +172,7 @@ struct ContentView: View {
                 
             }
             
-            
+            //MARK: NAVIGATION
             .navigationBarTitle(Text("\(self.isStarted ? "Cola" : "Porter@")"), displayMode: .inline)
             .navigationBarItems(leading:
                 Button(action: {
@@ -183,9 +200,10 @@ struct ContentView: View {
         
         
     }
-    
+    //MARK: SCANNER HANDLER
     func handleScan(result: Result<String, CodeScannerView.ScanError>) {
                      self.isShowingScanner = false
+                     self.showInfoScanned = false
                      // more code to come
                       switch result {
                       case .success(let code):
@@ -212,22 +230,19 @@ struct ContentView: View {
               //                  person.name = "\(details[0]) \(details[1])"
                               person.name = "\(xName[1]) \(xLName[1])"
                               person.data = "\(xCi[1])"
-                              UIDevice.playSound(soundID: 1111)
-          //                    Notify.me()
-                              //1009
-                              self.countOfClients += 1
+                              self.showInfoScanned = true
                               self.QRType = CONSTANT.QRType.QR_CI
                               
                           default:
                               print("details count :\(details.count)")
                               self.QRType = CONSTANT.QRType.QR_ANY
-                              UIDevice.playSound(soundID: 1112)
-                              //1073, accept 1111, cancel 1112
+                             
+                              
                           }
 
                           self.info = person
                           self.isStarted = true
-                          self.showInfoScanned = true
+                          
                       case .failure(let error):
                           print("Scanning failed \(error)")
                       }
@@ -240,19 +255,23 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-
+//MARK: HeaderView Struct
 
 struct HeaderView: View {
     
    @Binding var name : String
    @Binding var data : String
    @Binding var typeQR: CONSTANT.QRType
+   @Binding var isDenegate : Bool
     
     var body: some View {
         VStack(alignment: .leading){
+            if isDenegate{
+            Text("CLIENTE DENEGADO").font(.system(.largeTitle, design: .rounded))
+            }
             Text("Cliente actual: \(name)").font(.system(.subheadline, design: .rounded)).fontWeight(.bold)
             Text("\(typeQR == CONSTANT.QRType.QR_NAME_EMAIL ? "Otro Dato" : "CI" ): \(data)").font(.system(.subheadline, design: .rounded)).bold()
-        }.padding().frame(minWidth: 0, maxWidth: .infinity)
+        }.padding().frame(minWidth: 0, maxWidth: .infinity).foregroundColor(isDenegate ? Color.red :Color.black)
     }
 }
 

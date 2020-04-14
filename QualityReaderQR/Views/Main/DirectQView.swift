@@ -19,7 +19,7 @@ struct DirectQView: View {
     @Binding var showInfoScanned : Bool
     @Binding var info : Prospect
     @Binding var QRType : CONSTANT.QRType
-    
+    @Binding var isDenegate : Bool
     
     var body: some View {
         VStack(alignment: .center, spacing: 10){
@@ -36,7 +36,7 @@ struct DirectQView: View {
                         Spacer()
                     if showInfoScanned{
                         withAnimation {
-                        HeaderView(name: $info.name, data: $info.data, typeQR: $QRType)
+                            HeaderView(name: $info.name, data: $info.data, typeQR: $QRType, isDenegate: $isDenegate)
                         }
                     }
 
@@ -58,8 +58,8 @@ struct DirectQView_Previews: PreviewProvider {
     @State static var showInfoScanned = false
     @State static var info : Prospect = Prospect()
     @State static var QRType : CONSTANT.QRType = .QR_CI
-    
+    @State static var isDenegate = false
     static var previews: some View {
-        DirectQView(dateString: $dateString, timeString: $timeString, countOfClients: $countOfClients, showInfoScanned: $showInfoScanned, info: $info, QRType: $QRType)
+        DirectQView(dateString: $dateString, timeString: $timeString, countOfClients: $countOfClients, showInfoScanned: $showInfoScanned, info: $info, QRType: $QRType, isDenegate: $isDenegate)
     }
 }

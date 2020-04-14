@@ -46,6 +46,7 @@ struct QueueManager {
             guard let QueueCD : QueueEntity = self.getQueueFromDB(predicate: NSPredicate(format: "id == %@", newClient.queueId)) else { return false }
             
             QueueCD.clients.append(newClient)
+            ClientsManager.createClient(newClient: newClient)
         default:
             //FINISH QUEUE
             guard let QueueCD : QueueEntity = self.getQueueFromDB(predicate: NSPredicate(format: "id == %@", queueId)) else { return false }

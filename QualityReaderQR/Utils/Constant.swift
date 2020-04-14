@@ -22,6 +22,10 @@ struct CONSTANT{
         case ADD_CLIENT = "ADD_CLIENT"
         case FINISH = "FINISH"
     }
+    enum ClientUpdateAction : String{
+        case ADD_DENEGATECOUNT = "ADD_DENEGATECOUNT"
+        case UPDATE_ALL = "UPDATE_ALL"
+    }
     
     enum QueueType : String{
         case DIRECT_Q = "DIRECT_Q"

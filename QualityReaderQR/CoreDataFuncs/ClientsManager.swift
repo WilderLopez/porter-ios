@@ -35,7 +35,7 @@ struct ClientsManager {
             client.denegateCount = newClient.denegateCount
             client.queueId = newClient.queueId
                 
-            
+//        print("Client ready to save \(client.id)")
             do {
                 try context.save()
                 print("Save clients ok")
@@ -45,13 +45,28 @@ struct ClientsManager {
             
         }
     
-    static func updateClient(newClient: Client) -> Bool {
+    static func updateClient(newClient: Client,method: CONSTANT.ClientUpdateAction) -> Bool {
         
 //         let username : String = newClient.id
-        guard let ClientCD : ClientEntity = self.getClientFromDB(predicate: NSPredicate(format: "id == %@ AND queueId == %@", newClient.id, newClient.queueId)) else { return false }
+        guard let ClientCD : ClientEntity = self.getClientFromDB( predicate: NSPredicate(format: "ci == %@ AND queueId == %@", argumentArray: [newClient.ci, newClient.queueId])) else { return false }
         
-        ClientCD.denegateCount = newClient.denegateCount
-       
+        if method == .ADD_DENEGATECOUNT{
+            guard let Q = QueueManager.getQueueFromDB(predicate: NSPredicate(format: "id == %@ ", argumentArray: [newClient.queueId])) else {return false}
+            for q in Q.clients{
+                if q.ci == newClient.ci{
+                    q.denegateCount += 1
+                    break
+                }
+            }
+        ClientCD.denegateCount += 1
+        }else if method == .UPDATE_ALL{
+            ClientCD.id = newClient.id
+            ClientCD.ci = newClient.ci
+            ClientCD.name = newClient.name
+            ClientCD.denegateCount = newClient.denegateCount
+            ClientCD.queueId = newClient.queueId
+            print("client ready to update : \(ClientCD)")
+        }
         
         
         let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -90,33 +105,60 @@ struct ClientsManager {
         return nil
     }
     
-//       static func FetchUserRosterData() -> [UserRosterCD]{
-//            let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-//            let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
-//
-//    //        let request  = NSFetchRequest<NSFetchRequestResult>(entityName: "UserRosterEntity")
-//
-//            let fQ : NSFetchRequest<UserRosterCD> = UserRosterCD.fetchRequest()
-//
-//            do{
-//
-//    //            let usr = try context.fetch(request)
-//
-//                let f = try context.fetch(fQ)
-//                 let userx : [UserRosterCD] = f
-//                for C in userx{
-//                    print("->Username: \(C.username) ->Version: \(C.version)")
+    static func FetchClientsData(predicate: NSPredicate? = nil) -> [ClientEntity]{
+            let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
+
+    //        let request  = NSFetchRequest<NSFetchRequestResult>(entityName: "UserRosterEntity")
+
+            let fQ : NSFetchRequest<ClientEntity> = ClientEntity.fetchRequest()
+                if predicate != nil{
+                    fQ.predicate = predicate
+                }
+        
+            do{
+
+    //            let usr = try context.fetch(request)
+
+                let f = try context.fetch(fQ)
+                 let clients : [ClientEntity] = f
+//                for C in clients{
+                ////                    print("->name: \(C.name) ->ci: \(String(describing: C.ci))")
 //    //                do{
 //    //                try print("+++______   UserName: \(C.username) -> \(String(describing: C.userInfo.alias))")
 //    //                } catch{
 //    //                    print("Error")
 //    //                }
 //                }
-//                return userx
-//            }catch let error as NSError{
-//                print("Could not fetch. \(error), \(error.userInfo)")
-//            }
-//            return [UserRosterCD]()
-//        }
-//
+                return clients
+            }catch let error as NSError{
+                print("Could not fetch. \(error), \(error.userInfo)")
+            }
+            return [ClientEntity]()
+        }
+    
+    static func getAllClients(queueID: String) -> [Client]{
+           let clients = self.FetchClientsData(predicate: NSPredicate(format: "queueId == %@", queueID))
+           
+           var Qs = [Client]()
+           
+           for c in clients{
+            if c.queueId == queueID{
+            let qq = Client()
+               qq.id = c.id!
+               qq.name = c.name!
+               qq.ci = c.ci!
+               qq.denegateCount = c.denegateCount
+               qq.queueId = c.queueId!
+                Qs.append(qq)
+                
+            }
+           }
+           return Qs
+       }
+    
+    static func countOfClientsDenegate(queueID: String) -> Int{
+        return self.FetchClientsData(predicate: NSPredicate(format: "queueId == %@ AND denegateCount > 0", queueID)).count
+    }
+
 }
