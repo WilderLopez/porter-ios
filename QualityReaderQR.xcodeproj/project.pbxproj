@@ -37,7 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		811759F72440B7E8007F349B /* QualityReaderQR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QualityReaderQR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		811759F72440B7E8007F349B /* Porter@.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Porter@.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		811759FA2440B7E8007F349B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		811759FC2440B7E8007F349B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		811759FE2440B7E8007F349B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,7 +95,7 @@
 		811759F82440B7E8007F349B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				811759F72440B7E8007F349B /* QualityReaderQR.app */,
+				811759F72440B7E8007F349B /* Porter@.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,7 +213,7 @@
 				81D83BF7244144F100816A7D /* PartialSheet */,
 			);
 			productName = QualityReaderQR;
-			productReference = 811759F72440B7E8007F349B /* QualityReaderQR.app */;
+			productReference = 811759F72440B7E8007F349B /* Porter@.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -438,7 +438,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iGhost.QualityReaderQR;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Porter@";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -458,7 +458,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iGhost.QualityReaderQR;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Porter@";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
