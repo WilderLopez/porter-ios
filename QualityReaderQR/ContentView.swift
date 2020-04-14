@@ -85,6 +85,8 @@ struct ContentView: View {
                                             }
                                         }
                                     }) {
+                                        //MARK: SCANNERVIEW
+                                        
                                         CodeScannerView(codeTypes: [.qr], simulatedData: "N:WILDER\rAA:LOPEZ ELIAS\rCI:95061249224\rFV:ABA585784\r", completion: self.handleScan)
                                     }
                             
@@ -93,6 +95,13 @@ struct ContentView: View {
 //                                Image(systemName: "qrcode.viewfinder").font(.system(size: 60))
 //                            }.padding([.bottom, .top], 50)
                        
+                            //MARK: Buttons Bottom
+                            
+                            Button(action: {
+                                
+                            }){
+                                Image(systemName: "keyboard").font(.system(size: 40))
+                            }
                             if queueType == CONSTANT.QueueType.VERIFY_Q{
                             Button(action: {
                                 
@@ -196,7 +205,7 @@ struct ContentView: View {
                 
             
         }
-        .accentColor(Color.purple)
+        .accentColor(Color.MyPrimaryColor)
         
         
     }

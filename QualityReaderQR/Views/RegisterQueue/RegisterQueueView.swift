@@ -16,7 +16,7 @@ struct RegisterQueueView: View {
         
         ScrollView{
             if self.queues.count > 0{
-            ForEach(0..<queues.count){ row in
+                ForEach(0..<queues.count){ row in
 
                 VStack(spacing: 10){
                     if self.queues[row].clients.count > 0 {
@@ -35,7 +35,7 @@ struct RegisterQueueView: View {
         }
         }
         .onAppear(perform: {
-            self.queues = QueueManager.getAllQueue()
+            self.queues = QueueManager.getAllQueue().reversed()
         })
     .navigationBarTitle("Registro de colas")
         

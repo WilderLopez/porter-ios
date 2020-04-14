@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import UIKit
+import SwiftUI
 
 struct CONSTANT{
     enum QRType : String {
@@ -48,4 +49,9 @@ extension UIDevice {
     static func playSound(soundID: SystemSoundID){
         AudioServicesPlaySystemSound(soundID)
     }
+}
+
+extension Color {
+    
+    static let MyPrimaryColor = Color("MyColor")
 }

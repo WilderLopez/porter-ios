@@ -24,7 +24,7 @@ struct QueueView: View {
             }
             }
             .onAppear {
-                self.clients = ClientsManager.getAllClients(queueID: self.queueID)
+                self.clients = ClientsManager.getAllClients(queueID: self.queueID).reversed()
             }
         }
     .navigationBarTitle(Text("Todos"))

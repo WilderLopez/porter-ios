@@ -29,7 +29,8 @@ struct DirectQView: View {
                             Text("Hora de inicio: \(timeString)").font(.system(.subheadline, design: .rounded))
                         }.padding(.top)
                         VStack{
-                            Text("\(countOfClients)").font(.system(size: 200, weight: .bold, design: .rounded)).foregroundColor(Color.purple)
+                            Text("\(countOfClients)").font(.system(size: 200, weight: .bold, design: .rounded))
+                                .foregroundColor(Color.MyPrimaryColor)
                             Text("Total de clientes").font(.system(size: 15, weight: .bold, design: .rounded))
                                 .foregroundColor(.gray)
                         }
