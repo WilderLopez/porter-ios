@@ -12,9 +12,10 @@ import UIKit
 
 struct QueueManager {
     
+   static var appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
    static func createQueue(newQueue: Queue){
-        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
+        
+        let context: NSManagedObjectContext = appDelegate.coreDataStack.managedContext
 //
         let ent = NSEntityDescription.entity(forEntityName: "QueueEntity", in: context)!
 
@@ -24,10 +25,9 @@ struct QueueManager {
         queue.id = newQueue.id
         queue.dateBegin = newQueue.dateBegin
         queue.dateEnd = newQueue.dateEnd
-        queue.clients = [Client]()
         queue.denegateClients = newQueue.denegateClients
         queue.name = newQueue.name
-            
+        
         
         do {
             try context.save()
@@ -43,9 +43,10 @@ struct QueueManager {
         
         switch queueAction {
         case .ADD_CLIENT:
-            guard let QueueCD : QueueEntity = self.getQueueFromDB(predicate: NSPredicate(format: "id == %@", newClient.queueId)) else { return false }
+//            guard let QueueCD : QueueEntity = self.getQueueFromDB(predicate: NSPredicate(format: "id == %@", newClient.queueId)) else { return false }
             
-            QueueCD.clients.append(newClient)
+//            QueueCD.clients.append(newClient)
+//            guard let currentQueue = QueueManager.getQueueFromDB(predicate: NSPredicate(format: "id == %@ ", newClient.queueId)) else {return false}
             ClientsManager.createClient(newClient: newClient)
         default:
             //FINISH QUEUE
@@ -58,8 +59,7 @@ struct QueueManager {
         
             
             
-            let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
+            let context: NSManagedObjectContext = appDelegate.coreDataStack.managedContext
             
             do {
                 try context.save()
@@ -73,8 +73,7 @@ struct QueueManager {
         
     static public func getQueueFromDB(predicate : NSPredicate) -> QueueEntity? {
             
-            let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
+            let context: NSManagedObjectContext = appDelegate.coreDataStack.managedContext
             
             let entity = NSEntityDescription.entity(forEntityName: "QueueEntity", in: context)
             
@@ -96,8 +95,7 @@ struct QueueManager {
     
     static func FetchQueueData() -> [QueueEntity]{
         
-            let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
+            let context: NSManagedObjectContext = appDelegate.coreDataStack.managedContext
 
     //        let request  = NSFetchRequest<NSFetchRequestResult>(entityName: "UserRosterEntity")
 
@@ -109,14 +107,14 @@ struct QueueManager {
 
                 let f = try context.fetch(fQ)
                  let queues : [QueueEntity] = f
-                for C in queues{
-                    print("->name: \(String(describing: C.name)) ->count of clients: \(C.clients.count)")
+//                for C in queues{
+//                    print("->name: \(String(describing: C.name)) ->count of clients: \(C.clients.count)")
     //                do{
     //                try print("+++______   UserName: \(C.username) -> \(String(describing: C.userInfo.alias))")
     //                } catch{
     //                    print("Error")
     //                }
-                }
+//                }
                 return queues
             }catch let error as NSError{
                 print("Could not fetch. \(error), \(error.userInfo)")
@@ -137,7 +135,7 @@ struct QueueManager {
             qq.dateBegin = q.dateBegin!
             qq.dateEnd = q.dateEnd!
             qq.denegateClients = q.denegateClients
-            qq.clients = q.clients
+//            qq.clients = q.clients
             Qs.append(qq)
         }
         return Qs

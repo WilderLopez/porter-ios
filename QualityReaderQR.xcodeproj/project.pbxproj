@@ -34,6 +34,7 @@
 		81D83BF8244144F100816A7D /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 81D83BF7244144F100816A7D /* PartialSheet */; };
 		81D83BFA244167F000816A7D /* NewInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D83BF9244167F000816A7D /* NewInfo.swift */; };
 		81FE2A492444E24D00A374CB /* ClientViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE2A482444E24D00A374CB /* ClientViewCell.swift */; };
+		81FE2A4B24475B8000A374CB /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE2A4A24475B8000A374CB /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		81A2C34B2444498C008307B6 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		81D83BF9244167F000816A7D /* NewInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewInfo.swift; sourceTree = "<group>"; };
 		81FE2A482444E24D00A374CB /* ClientViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewCell.swift; sourceTree = "<group>"; };
+		81FE2A4A24475B8000A374CB /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			children = (
 				811759FA2440B7E8007F349B /* AppDelegate.swift */,
 				811759FC2440B7E8007F349B /* SceneDelegate.swift */,
+				81FE2A4A24475B8000A374CB /* CoreDataStack.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81A2C3392442FC55008307B6 /* ClientEntity+CoreDataClass.swift in Sources */,
+				81FE2A4B24475B8000A374CB /* CoreDataStack.swift in Sources */,
 				81A2C3452443E6ED008307B6 /* QueueViewCell.swift in Sources */,
 				81D83BFA244167F000816A7D /* NewInfo.swift in Sources */,
 				81FE2A492444E24D00A374CB /* ClientViewCell.swift in Sources */,

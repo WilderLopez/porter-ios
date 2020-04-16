@@ -124,7 +124,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
             endingLineNumber = "51"
-            landmarkName = "updateClient(newClient:method:)"
+            landmarkName = "createClient(newClient:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -179,22 +179,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "911A2612-E9ED-443D-9FC5-D729FA639EC4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "QualityReaderQR/CoreDataFuncs/QueueManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "updateQueue(With:queueId:queueAction:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7001A5A9-FE11-4C9D-A339-8C2481B728A9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -234,9 +218,9 @@
             filePath = "QualityReaderQR/CoreDataFuncs/ClientsManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "FetchClientsData(predicate:)"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "getClientFromDB(predicate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -250,9 +234,9 @@
             filePath = "QualityReaderQR/CoreDataFuncs/ClientsManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "getAllClients(queueID:)"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "FetchClientsData(predicate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -266,9 +250,9 @@
             filePath = "QualityReaderQR/CoreDataFuncs/ClientsManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "getAllClients(queueID:)"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "FetchClientsData(predicate:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

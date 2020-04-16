@@ -2,21 +2,23 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ClientEntity" representedClassName="ClientEntity" syncable="YES">
         <attribute name="ci" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="denegateCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="queueId" optional="YES" attributeType="String"/>
+        <relationship name="queue" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QueueEntity" inverseName="clients" inverseEntity="QueueEntity"/>
     </entity>
     <entity name="QueueEntity" representedClassName="QueueEntity" syncable="YES">
-        <attribute name="clients" optional="YES" attributeType="Transformable"/>
         <attribute name="dateBegin" optional="YES" attributeType="String"/>
         <attribute name="dateEnd" optional="YES" attributeType="String"/>
         <attribute name="denegateClients" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="clients" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="ClientEntity" inverseName="queue" inverseEntity="ClientEntity"/>
     </entity>
     <elements>
-        <element name="ClientEntity" positionX="-353.1640625" positionY="-129.3671875" width="128" height="118"/>
-        <element name="QueueEntity" positionX="-54" positionY="-9" width="128" height="133"/>
+        <element name="ClientEntity" positionX="-353.1640625" positionY="-129.3671875" width="128" height="148"/>
+        <element name="QueueEntity" positionX="-659.2890625" positionY="-176.54296875" width="128" height="133"/>
     </elements>
 </model>

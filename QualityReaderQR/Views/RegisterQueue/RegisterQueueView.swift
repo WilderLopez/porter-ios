@@ -11,7 +11,7 @@ import SwiftUI
 struct RegisterQueueView: View {
     
     @State var queues: [Queue] = [Queue]()
-    
+    @State var countOfClients = 0
     var body: some View {
         
         ScrollView{
@@ -19,15 +19,17 @@ struct RegisterQueueView: View {
                 ForEach(0..<queues.count){ row in
 
                 VStack(spacing: 10){
-                    if self.queues[row].clients.count > 0 {
+                    if self.countOfClients > 0 {
                         NavigationLink(destination: QueueView(queueID: "\(self.queues[row].id)")){
-                            QueueViewCell(name: "\(self.queues[row].name)", beginDate: "\(self.queues[row].dateBegin)", endDate: "\(self.queues[row].dateEnd)", clients: Int(self.queues[row].clients.count), denegateClients: Int(ClientsManager.countOfClientsDenegate(queueID: self.queues[row].id))).accentColor(.black)
+                            QueueViewCell(name: "\(self.queues[row].name)", beginDate: "\(self.queues[row].dateBegin)", endDate: "\(self.queues[row].dateEnd)", clients: self.countOfClients, denegateClients: Int(self.queues[row].denegateClients)).accentColor(.black)
                     }
                     }
                     else {
-                        QueueViewCell(name: "\(self.queues[row].name)", beginDate: "\(self.queues[row].dateBegin)", endDate: "\(self.queues[row].dateEnd)", clients: Int(self.queues[row].clients.count), denegateClients: Int(self.queues[row].denegateClients))
+                        QueueViewCell(name: "\(self.queues[row].name)", beginDate: "\(self.queues[row].dateBegin)", endDate: "\(self.queues[row].dateEnd)", clients: 3, denegateClients: Int(self.queues[row].denegateClients))
                     }
-                }
+                }.onAppear(perform: {
+                    self.countOfClients = ClientsManager.getAllClients(queueID: self.queues[row].id).count
+                })
                 .padding(.vertical, 10)
                 
                 

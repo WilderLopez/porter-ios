@@ -20,10 +20,10 @@ struct ClientsManager {
     
 //    init() {
 //    }
+    static let appDelegate : AppDelegate = UIApplication.shared.delegate as! AppDelegate
     
        static func createClient(newClient: Client){
-            let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
+            let context: NSManagedObjectContext = appDelegate.coreDataStack.managedContext
     //
             let ent = NSEntityDescription.entity(forEntityName: "ClientEntity", in: context)!
 
@@ -34,7 +34,16 @@ struct ClientsManager {
             client.name = newClient.name
             client.denegateCount = newClient.denegateCount
             client.queueId = newClient.queueId
-                
+            client.date = Date()
+            
+//        if let currentQueue = QueueManager.getQueueFromDB(predicate: NSPredicate(format: "id == %@ ", newClient.queueId)), let clients = currentQueue.clients?.mutableCopy() as? NSMutableOrderedSet{
+//            clients.add(client)
+//            currentQueue.clients = clients
+//        }
+        
+        let currentQueue = QueueManager.getQueueFromDB(predicate: NSPredicate(format: "id == %@ ", newClient.queueId))
+        currentQueue?.addToClients(client)
+            
 //        print("Client ready to save \(client.id)")
             do {
                 try context.save()
@@ -48,17 +57,25 @@ struct ClientsManager {
     static func updateClient(newClient: Client,method: CONSTANT.ClientUpdateAction) -> Bool {
         
 //         let username : String = newClient.id
-        guard let ClientCD : ClientEntity = self.getClientFromDB( predicate: NSPredicate(format: "ci == %@ AND queueId == %@", argumentArray: [newClient.ci, newClient.queueId])) else { return false }
+//        guard let ClientCD : ClientEntity = self.getClientFromDB( predicate: NSPredicate(format: "ci == %@ AND queueId == %@", argumentArray: [newClient.ci, newClient.queueId])) else { return false }
+        
+        guard let currentQueue = QueueManager.getQueueFromDB(predicate: NSPredicate(format: "id == %@ ", newClient.queueId)) else {return false}
+        let clients = currentQueue.clients?.mutableCopy() as? NSMutableOrderedSet
+                        
+        guard let ClientCD = clients?.filtered(using: NSPredicate(format: "ci == %@", newClient.ci)).firstObject as! ClientEntity? else {return false}
+                        
         
         if method == .ADD_DENEGATECOUNT{
-            guard let Q = QueueManager.getQueueFromDB(predicate: NSPredicate(format: "id == %@ ", argumentArray: [newClient.queueId])) else {return false}
-            for q in Q.clients{
-                if q.ci == newClient.ci{
-                    q.denegateCount += 1
-                    break
-                }
-            }
+//            guard let Q = QueueManager.getQueueFromDB(predicate: NSPredicate(format: "id == %@ ", argumentArray: [newClient.queueId])) else {return false}
+//            for q in Q.clients{
+//                if q.ci == newClient.ci{
+//                    q.denegateCount += 1
+//                    break
+//                }
+//            }
         ClientCD.denegateCount += 1
+        currentQueue.denegateClients += 1
+        print("Client ready to update denegateCount")
         }else if method == .UPDATE_ALL{
             ClientCD.id = newClient.id
             ClientCD.ci = newClient.ci
@@ -69,8 +86,7 @@ struct ClientsManager {
         }
         
         
-        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
+        let context: NSManagedObjectContext = appDelegate.coreDataStack.managedContext
         
         do {
             try context.save()
@@ -84,8 +100,8 @@ struct ClientsManager {
     
    static public func getClientFromDB(predicate : NSPredicate) -> ClientEntity? {
         
-        let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
+       
+        let context: NSManagedObjectContext = appDelegate.coreDataStack.managedContext
         
         let entity = NSEntityDescription.entity(forEntityName: "ClientEntity", in: context)
         
@@ -107,7 +123,7 @@ struct ClientsManager {
     
     static func FetchClientsData(predicate: NSPredicate? = nil) -> [ClientEntity]{
             let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context: NSManagedObjectContext = appDel.persistentContainer.viewContext
+            let context: NSManagedObjectContext = appDelegate.coreDataStack.managedContext
 
     //        let request  = NSFetchRequest<NSFetchRequestResult>(entityName: "UserRosterEntity")
 
