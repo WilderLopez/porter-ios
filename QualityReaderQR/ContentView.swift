@@ -29,8 +29,10 @@ struct ContentView: View {
     @State var queueType : CONSTANT.QueueType?
     @State var isStarted = false
     @State var isDenegate = false
+    @State var isKeyboardView = false
     
-    
+    @State var newName = ""
+    @State var newCi = ""
     
     var body: some View {
         
@@ -60,29 +62,7 @@ struct ContentView: View {
                         //MARK: IT's OK METHOD
                         .sheet(isPresented: $isShowingScanner, onDismiss: {
                             if self.showInfoScanned {
-                                            print("its ok")
-//                                self.showInfoScanned = false
-                                            //Create Client
-                                            let client = Client(id: UUID().uuidString, name: self.info.name, ci: self.info.data, denegateCount: 0, queueId: self.CurrentQueue.id)
-                                            //if can update client not (3)
-                                            if ClientsManager.updateClient(newClient: client, method: .ADD_DENEGATECOUNT){
-                                                //Error sound
-                                                 UIDevice.playSound(soundID: 1073)
-                                                self.isDenegate = true
-                                                //update queue
-                                            }else {
-                                            // (3) ADD Client a current Cola
-                                                if QueueManager.updateQueue(With: client, queueId: self.CurrentQueue.id, queueAction: .ADD_CLIENT){
-                                                    //ok sound and count++ 1073, accept 1111, cancel 1112
-                                                    UIDevice.playSound(soundID: 1111)
-                                                    self.isDenegate = false
-                                                    self.countOfClients += 1
-                                                   
-                                                    print("Save Client in CurrentQueue")
-                                                }else {
-                                                    print("Error trying to save CurrentQueue")
-                                                }
-                                            }
+                                self.itsOK()
                                         }
                                     }) {
                                         //MARK: SCANNERVIEW
@@ -98,9 +78,19 @@ struct ContentView: View {
                             //MARK: Buttons Bottom
                             
                             Button(action: {
-                                
+                                self.info.name = ""
+                                self.info.data = ""
+                                self.isKeyboardView = true
                             }){
                                 Image(systemName: "keyboard").font(.system(size: 40))
+                            }
+                            //MARK: Go to NewInfo
+                                .sheet(isPresented: $isKeyboardView, onDismiss: {
+                                    print("new name: \(self.info.name)")
+                                    print("new ci: \(self.info.data)")
+                                    self.itsOK()
+                                }) {
+                                NewInfo(Name: self.$info.name, Ci: self.$info.data)
                             }
                             if queueType == CONSTANT.QueueType.VERIFY_Q{
                             Button(action: {
@@ -165,21 +155,22 @@ struct ContentView: View {
                         }
                     }
                             
-                        Button(action: {
-                            self.isStarted = true
-                            self.queueType = CONSTANT.QueueType.VERIFY_Q
-                        }){
-                        VStack(spacing: 30){
-                        Image(systemName:  "text.badge.checkmark").font(.system(size: 80))
-                            Text("Cola Verificada").font(.system(size: 17, weight: .semibold, design: .rounded))
-                        }
-                        }
+//                    Button(action: {
+//                        self.isStarted = true
+//                        self.queueType = CONSTANT.QueueType.VERIFY_Q
+//                    }){
+//                    VStack(spacing: 30){
+//                    Image(systemName:  "text.badge.checkmark").font(.system(size: 80))
+//                        Text("Cola Verificada").font(.system(size: 17, weight: .semibold, design: .rounded))
+//                    }
+//                    }
                         
                         
                     }
                 }
                 
-            }.onAppear(perform: {
+            }
+            .onAppear(perform: {
                 if CONSTANT.isOpenQueue() && CONSTANT.getLastQueueID() != nil{
                     self.isStarted = true
                     self.CurrentQueue.id = CONSTANT.getLastQueueID()!
@@ -216,7 +207,6 @@ struct ContentView: View {
             
         }
         .accentColor(Color.MyPrimaryColor)
-        
         
     }
     //MARK: SCANNER HANDLER
@@ -295,3 +285,31 @@ struct HeaderView: View {
 }
 
 
+extension ContentView{
+    //MARK: It's ok Implementation
+    func itsOK(){
+            print("its ok")
+    //                                self.showInfoScanned = false
+            //Create Client
+            let client = Client(id: UUID().uuidString, name: self.info.name, ci: self.info.data, denegateCount: 0, queueId: self.CurrentQueue.id)
+            //if can update client not (3)
+            if ClientsManager.updateClient(newClient: client, method: .ADD_DENEGATECOUNT){
+                //Error sound
+                 UIDevice.playSound(soundID: 1073)
+                self.isDenegate = true
+                //update queue
+            }else {
+            // (3) ADD Client a current Cola
+                if QueueManager.updateQueue(With: client, queueId: self.CurrentQueue.id, queueAction: .ADD_CLIENT){
+                    //ok sound and count++ 1073, accept 1111, cancel 1112
+                    UIDevice.playSound(soundID: 1111)
+                    self.isDenegate = false
+                    self.countOfClients += 1
+                   
+                    print("Save Client in CurrentQueue")
+                }else {
+                    print("Error trying to save CurrentQueue")
+                }
+            }
+    }
+}

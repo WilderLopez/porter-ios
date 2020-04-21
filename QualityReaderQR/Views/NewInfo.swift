@@ -9,81 +9,77 @@
 import SwiftUI
 
 struct NewInfo: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @ObservedObject var ci = TextBindingManager(limit: 11)
+    @Binding var Name : String
+    @Binding var Ci : String
     
-    @State var name : String = ""
-    @State var ci : String = ""
     var body: some View {
         ScrollView{
+            Text("Introduzca sus datos").font(.system(.largeTitle, design: .rounded)).bold().padding(.top, 10)
         VStack(spacing: 10){
             
         VStack (spacing: 15){
                         VStack{
-        //                HStack{
-//                            if self.name.isEmpty{
-//                                withAnimation{
-                                Text("*Nombre y Apellidos")
-                                    .font(.system(size: 11))
-                                    .foregroundColor(.red)
-                                    .multilineTextAlignment(.leading)
-//                                }
-//                            }
+                        Text("*Nombre y Apellidos")
+                            .font(.system(size: 11))
+                            .foregroundColor(.red)
+                            .multilineTextAlignment(.leading)
                         
-                        TextField("Nombre", text: $name)
+                        TextField("Nombre", text: $Name)
                             .textContentType(.name)
                             .font(.system(.title, design: .rounded))
-                            .textContentType(.name)
+                            .keyboardType(.alphabet)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .padding( .bottom)
                             
-                        
                     }
                         VStack{
-        //                HStack{
-//                            if self.ci.isEmpty{
-//                                withAnimation {
-                                Text("*Carnet de Identidad")
-                                    .font(.system(size: 11))
-                                    .foregroundColor(.red)
-                                    .multilineTextAlignment(.leading)
-//                                }
-//                            }
-                        TextField("CI", text: $ci)
+
+                        Text("*Carnet de Identidad")
+                            .font(.system(size: 11))
+                            .foregroundColor(.red)
+                            .multilineTextAlignment(.leading)
+
+                            TextField("CI", text: $ci.text)
                             .textContentType(.emailAddress)
                             .font(.system(.title, design: .rounded))
                             .padding(.bottom)
                             .keyboardType(.numberPad)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
-        //                    .disabled(data.count > 11 )
                         }
                     }.padding(.vertical, 40)
             
             
             Button(action: {
-                
+                self.Ci = self.ci.text
+                self.presentationMode.wrappedValue.dismiss()
             }){
                 Text("VERIFICAR").font(.system(size: 20, weight: .medium, design: .rounded))
                     .foregroundColor(.white)
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .frame(height: 34)
-                    .background(Color.purple)
+                    .background(Color.MyPrimaryColor)
                     .cornerRadius(15)
                 
             }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
             .frame(height: 40)
-            .disabled( (self.ci.count != 11 || self.name.isEmpty) )
-                .opacity((self.ci.count != 11  || self.name.isEmpty) ? 0.3 : 1)
+                .disabled( (self.ci.text.count != 11 || self.Name.isEmpty) )
+            .opacity((self.ci.text.count != 11  || self.Name.isEmpty) ? 0.3 : 1)
             Spacer()
             
         }.padding(.horizontal, 30)
         }
             
-        .navigationBarTitle(Text("Introdusca sus datos"), displayMode: .inline)
+//        .navigationBarTitle(Text("Introduzca sus datos"), displayMode: .inline)
         .modifier(DismissingKeyboard())
     }
 }
 
 struct NewInfo_Previews: PreviewProvider {
+    @State static var Name = "Wilder"
+    @State static var Ci = "953423"
     static var previews: some View {
-        NewInfo()
+        NewInfo(Name: $Name, Ci: $Ci)
     }
 }

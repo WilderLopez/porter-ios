@@ -122,7 +122,7 @@ struct ClientsManager {
     }
     
     static func FetchClientsData(predicate: NSPredicate? = nil) -> [ClientEntity]{
-            let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//            let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
             let context: NSManagedObjectContext = appDelegate.coreDataStack.managedContext
 
     //        let request  = NSFetchRequest<NSFetchRequestResult>(entityName: "UserRosterEntity")
