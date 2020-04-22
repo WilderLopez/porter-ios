@@ -19,17 +19,19 @@ struct RegisterQueueView: View {
                 ForEach(0..<queues.count){ row in
 
                 VStack(spacing: 10){
-                    if self.countOfClients > 0 {
+                    if ClientsManager.getAllClients(queueID: self.queues[row].id).count > 0 {
                         NavigationLink(destination: QueueView(queueID: "\(self.queues[row].id)")){
-                            QueueViewCell(name: "\(self.queues[row].name)", beginDate: "\(self.queues[row].dateBegin)", endDate: "\(self.queues[row].dateEnd)", clients: self.countOfClients, denegateClients: Int(self.queues[row].denegateClients)).accentColor(.black)
-                    }
+                            QueueViewCell(name: "\(self.queues[row].name)", beginDate: "\(self.queues[row].dateBegin)", endDate: "\(self.queues[row].dateEnd)", clients: ClientsManager.getAllClients(queueID: self.queues[row].id).count, denegateClients: Int(self.queues[row].denegateClients)).accentColor(.black)
+                        }
                     }
                     else {
-                        QueueViewCell(name: "\(self.queues[row].name)", beginDate: "\(self.queues[row].dateBegin)", endDate: "\(self.queues[row].dateEnd)", clients: 3, denegateClients: Int(self.queues[row].denegateClients))
+                        QueueViewCell(name: "\(self.queues[row].name)", beginDate: "\(self.queues[row].dateBegin)", endDate: "\(self.queues[row].dateEnd)", clients: 0, denegateClients: Int(self.queues[row].denegateClients))
                     }
-                }.onAppear(perform: {
-                    self.countOfClients = ClientsManager.getAllClients(queueID: self.queues[row].id).count
-                })
+                }
+//                .onAppear(perform: {
+//                    self.countOfClients = ClientsManager.getAllClients(queueID: self.queues[row].id).count
+//                    print("allClients :\(self.countOfClients)")
+//                })
                 .padding(.vertical, 10)
                 
                 

@@ -11,8 +11,10 @@ import SwiftUI
 struct NewInfo: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @ObservedObject var ci = TextBindingManager(limit: 11)
+    
     @Binding var Name : String
     @Binding var Ci : String
+    @Binding var showInfoScanned : Bool
     
     var body: some View {
         ScrollView{
@@ -52,6 +54,7 @@ struct NewInfo: View {
             
             
             Button(action: {
+                self.showInfoScanned = true
                 self.Ci = self.ci.text
                 self.presentationMode.wrappedValue.dismiss()
             }){
@@ -79,7 +82,8 @@ struct NewInfo: View {
 struct NewInfo_Previews: PreviewProvider {
     @State static var Name = "Wilder"
     @State static var Ci = "953423"
+    @State static var showInfoScanned = true
     static var previews: some View {
-        NewInfo(Name: $Name, Ci: $Ci)
+        NewInfo(Name: $Name, Ci: $Ci, showInfoScanned: $showInfoScanned)
     }
 }

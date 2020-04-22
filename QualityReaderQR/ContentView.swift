@@ -90,7 +90,7 @@ struct ContentView: View {
                                     print("new ci: \(self.info.data)")
                                     self.itsOK()
                                 }) {
-                                NewInfo(Name: self.$info.name, Ci: self.$info.data)
+                                    NewInfo(Name: self.$info.name, Ci: self.$info.data, showInfoScanned: self.$showInfoScanned)
                             }
                             if queueType == CONSTANT.QueueType.VERIFY_Q{
                             Button(action: {
