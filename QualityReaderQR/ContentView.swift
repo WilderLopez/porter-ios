@@ -88,7 +88,9 @@ struct ContentView: View {
                                 .sheet(isPresented: $isKeyboardView, onDismiss: {
                                     print("new name: \(self.info.name)")
                                     print("new ci: \(self.info.data)")
+                                    if self.showInfoScanned{
                                     self.itsOK()
+                                    }
                                 }) {
                                     NewInfo(Name: self.$info.name, Ci: self.$info.data, showInfoScanned: self.$showInfoScanned)
                             }

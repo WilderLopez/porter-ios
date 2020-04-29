@@ -54,8 +54,10 @@ struct NewInfo: View {
             
             
             Button(action: {
+                
                 self.showInfoScanned = true
                 self.Ci = self.ci.text
+                
                 self.presentationMode.wrappedValue.dismiss()
             }){
                 Text("VERIFICAR").font(.system(size: 20, weight: .medium, design: .rounded))
@@ -67,12 +69,15 @@ struct NewInfo: View {
                 
             }.frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
             .frame(height: 40)
-                .disabled( (self.ci.text.count != 11 || self.Name.isEmpty) )
+            .disabled( (self.ci.text.count != 11 || self.Name.isEmpty) )
             .opacity((self.ci.text.count != 11  || self.Name.isEmpty) ? 0.3 : 1)
             Spacer()
             
         }.padding(.horizontal, 30)
-        }
+        }.onAppear(perform: {
+            print("OnAppear showInfoScanned :\(self.showInfoScanned)")
+            self.showInfoScanned = false
+        })
             
 //        .navigationBarTitle(Text("Introduzca sus datos"), displayMode: .inline)
         .modifier(DismissingKeyboard())

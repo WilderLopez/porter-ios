@@ -19,6 +19,7 @@
 		81175A182440D2E8007F349B /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81175A172440D2E8007F349B /* Modifiers.swift */; };
 		81175A1B2440D962007F349B /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 81175A1A2440D962007F349B /* CodeScanner */; };
 		81175A1D24411EA2007F349B /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81175A1C24411EA2007F349B /* Constant.swift */; };
+		817F8EC62459D4D400F68957 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F8EC52459D4D400F68957 /* ShareSheet.swift */; };
 		81A2C3322442F92E008307B6 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C3312442F92E008307B6 /* Model.swift */; };
 		81A2C3372442FC55008307B6 /* QueueEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C3332442FC55008307B6 /* QueueEntity+CoreDataClass.swift */; };
 		81A2C3382442FC55008307B6 /* QueueEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2C3342442FC55008307B6 /* QueueEntity+CoreDataProperties.swift */; };
@@ -52,6 +53,7 @@
 		81175A142440C33C007F349B /* QRModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QRModel.xcdatamodel; sourceTree = "<group>"; };
 		81175A172440D2E8007F349B /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		81175A1C24411EA2007F349B /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		817F8EC52459D4D400F68957 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		81A2C3312442F92E008307B6 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		81A2C3332442FC55008307B6 /* QueueEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "QueueEntity+CoreDataClass.swift"; path = "QualityReaderQR/CoreDataModel/QueueEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		81A2C3342442FC55008307B6 /* QueueEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "QueueEntity+CoreDataProperties.swift"; path = "QualityReaderQR/CoreDataModel/QueueEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				81175A052440B7E9007F349B /* LaunchScreen.storyboard */,
 				81A2C33B2442FE47008307B6 /* CoreDataFuncs */,
 				81D83BF5244134F600816A7D /* System */,
+				817F8EC42459D4B500F68957 /* Components */,
 				81175A162440D2D1007F349B /* Utils */,
 				81A2C3302442F8F8008307B6 /* Model */,
 				81175A0E2440BD43007F349B /* Views */,
@@ -150,6 +153,14 @@
 				81A9608B244F54FC00C3B798 /* HelperClasses.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		817F8EC42459D4B500F68957 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				817F8EC52459D4D400F68957 /* ShareSheet.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		81A2C3302442F8F8008307B6 /* Model */ = {
@@ -288,6 +299,7 @@
 				81175A182440D2E8007F349B /* Modifiers.swift in Sources */,
 				81A2C34A24443104008307B6 /* DirectQView.swift in Sources */,
 				81175A1D24411EA2007F349B /* Constant.swift in Sources */,
+				817F8EC62459D4D400F68957 /* ShareSheet.swift in Sources */,
 				81A2C34C2444498C008307B6 /* ScannerView.swift in Sources */,
 				81A9608C244F54FC00C3B798 /* HelperClasses.swift in Sources */,
 				81175A102440BD5B007F349B /* GenerateQR.swift in Sources */,

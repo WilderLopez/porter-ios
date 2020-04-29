@@ -20,7 +20,7 @@ struct RegisterQueueView: View {
 
                 VStack(spacing: 10){
                     if ClientsManager.getAllClients(queueID: self.queues[row].id).count > 0 {
-                        NavigationLink(destination: QueueView(queueID: "\(self.queues[row].id)")){
+                        NavigationLink(destination: QueueView(queueID: "\(self.queues[row].id)", queueName: "\(self.queues[row].name)-\(self.queues[row].dateBegin)")){
                             QueueViewCell(name: "\(self.queues[row].name)", beginDate: "\(self.queues[row].dateBegin)", endDate: "\(self.queues[row].dateEnd)", clients: ClientsManager.getAllClients(queueID: self.queues[row].id).count, denegateClients: Int(self.queues[row].denegateClients)).accentColor(.black)
                         }
                     }
